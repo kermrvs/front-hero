@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300&display=swap');
+@import 'mixins';
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: antiquewhite;
+}
+
+.menu {
+  height: 100px;
+  width: 100%;
+  background: #535568;
+  display: flex;
+
+  &-item {
+    width: 200px;
+    padding: 35px 35px;
+    cursor: pointer;
+    background: lavender;
+    border: 4px solid greenyellow;
+    display: flex;
+    justify-content: center;
+    @include styleText;
+  }
+
+  &-item:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+.container {
+  width: 70vw;
+  height: 93vh;
+  margin: 0 auto;
+  background: darkgoldenrod;
+}
+
+.page-section {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+
+  .right {
+    display: flex;
+    align-items: center;
+
+    img {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .page {
+    @include styleText;
+    display: flex;
+    align-items: center;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+
+    img {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+.hero-block {
+  width: 100%;
+  min-height: 300px;
+  background: indianred;
+
+  .hero-nickname {
+    background: cornflowerblue;
+    @include styleText;
+  }
+
+  .hero-real-name {
+    @include styleText;
+    margin: 5px;
+    display: flex;
+    span {
+      color: #182e66;
+    }
+  }
+
+  .description {
+    @include textList;
+    span {
+      @include styleText;
+      color: #182e66;
+    }
+  }
+
+  .superpowers {
+    @include textList;
+    span {
+      @include styleText;
+      color: #182e66;
+    }
+  }
+
+  .phrase {
+    @include textList;
+    span {
+      @include styleText;
+      color: #182e66;
+    }
+  }
+
+  .images {
+    margin: 5px;
+    span {
+      @include styleText;
+      color: #182e66;
+    }
+  }
+
+  .list-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 5px;
+    div {
+      .img {
+        width: 200px;
+        height: 200px;
+        margin: 4px 4px;
+      }
+    }
+  }
+
+  .buttons-block {
+    display: flex;
+    justify-content: space-between;
+    .edit-btn {
+      height: 50px;
+      min-width: 150px;
+      margin: 5px;
+      background: chartreuse;
+      color: #182e66;
+      border: none;
+      @include styleText;
+    }
+    .delete-btn {
+      height: 50px;
+      min-width: 150px;
+      margin: 5px;
+      background: #851d15;
+      color: #182e66;
+      border: none;
+      @include styleText;
+    }
+
+    .edit-btn:hover {
+      opacity: 0.9;
+      cursor: pointer;
+    }
+
+    .delete-btn:hover {
+      opacity: 0.9;
+      cursor: pointer;
+    }
+  }
+}
+
+.hero-block-form {
+  width: 100%;
+  padding: 5px;
+
+  .hero-nickname {
+    @include styleText;
+    display: flex;
+    margin-bottom: 10px;
+    span {
+      width: 160px;
+    }
+
+    input {
+      width: 100%;
+      margin-right: 10px;
+      height: 25px;
+      font-size: 25px;
+      border: 1px solid greenyellow;
+      background: darkgoldenrod;
+    }
+  }
+
+  .hero-real-name {
+    @include styleText;
+    display: flex;
+    margin-bottom: 10px;
+    span {
+      width: 160px;
+    }
+
+    input {
+      width: 100%;
+      margin-right: 10px;
+      height: 25px;
+      font-size: 25px;
+      border: 1px solid greenyellow;
+      background: darkgoldenrod;
+    }
+  }
+
+  .description {
+    @include styleText;
+    margin-bottom: 10px;
+
+    textarea {
+      width: 98%;
+      font-size: 25px;
+      resize: vertical;
+      border: 1px solid greenyellow;
+      background: darkgoldenrod;
+    }
+  }
+
+  .superpowers {
+    @include styleText;
+    margin-bottom: 10px;
+    textarea {
+      width: 98%;
+      margin-right: 10px;
+      font-size: 25px;
+      resize: vertical;
+      border: 1px solid greenyellow;
+      background: darkgoldenrod;
+    }
+  }
+
+  .phrase {
+    @include styleText;
+    display: flex;
+    margin-bottom: 10px;
+    span {
+      width: 160px;
+    }
+
+    input {
+      width: 100%;
+      margin-right: 10px;
+      height: 25px;
+      font-size: 25px;
+      border: 1px solid greenyellow;
+      background: darkgoldenrod;
+    }
+  }
+
+  .images {
+    @include styleText;
+    margin-bottom: 10px;
+  }
+  button {
+    height: 50px;
+    min-width: 150px;
+    margin: 5px;
+    background: chartreuse;
+    color: #182e66;
+    border: none;
+    @include styleText;
+  }
+
+  button:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  .list-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 5px;
+    div {
+      display: flex;
+      justify-content: center;
+      width: 210px;
+      flex-wrap: wrap;
+
+      button {
+        font-size: 18px;
+        width: 100px;
+        height: 28px;
+      }
+
+      .img {
+        width: 200px;
+        height: 200px;
+        margin: 4px 4px;
+      }
+    }
+  }
+}
