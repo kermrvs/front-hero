@@ -5,11 +5,11 @@
       <div
         class="left"
         @click="prevPage(currentPage - 1)"
-        v-show="currentPage !== 1"
+        v-show="currentPage !== 1 && maxPages !== 0"
       >
         <img src="src/assets/left.svg" />
       </div>
-      <div class="page">{{ currentPage }}</div>
+      <div class="page" v-if="maxPages > 1">{{ currentPage }}</div>
       <div
         class="right"
         @click="nextPage(currentPage + 1)"
