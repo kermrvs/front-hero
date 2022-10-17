@@ -23,36 +23,52 @@
       </div>
     </div>
     <div class="buttons-block">
-      <input type="button" class="edit-btn" value="Edit" @click="toEditForm(hero)"/>
-      <input type="button" class="delete-btn" value="Delete" @click="deleteHeroById(hero._id)"/>
+      <input
+        type="button"
+        class="edit-btn"
+        value="Edit"
+        @click="toEditForm(hero)"
+      />
+      <input
+        type="button"
+        class="delete-btn"
+        value="Delete"
+        @click="deleteHeroById(hero._id || '')"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import {HeroStore} from '../store';
-import {mapActions, mapState} from 'pinia';
-import {IHero} from '../interface/Hero';
+import { HeroStore } from '../store';
+import { mapActions, mapState } from 'pinia';
+import { IHero } from '../interface/Hero';
 
 export default defineComponent({
   name: 'ListHero',
-  computed:{
-    ...mapState(HeroStore,['heroes','currentHeroForEdit'])
+  computed: {
+    ...mapState(HeroStore, ['heroes', 'currentHeroForEdit']),
   },
-  methods:{
-    ...mapActions(HeroStore,['getAllHeroes','deleteHero','setCurrentHeroForEdit']),
+  methods: {
+    ...mapActions(HeroStore, [
+      'getAllHeroes',
+      'deleteHero',
+      'setCurrentHeroForEdit',
+    ]),
 
-    deleteHeroById(id:string){
-      this.deleteHero(id);
-      this.getAllHeroes(1);
+    async deleteHeroById(id: string) {
+      if (id) {
+        await this.deleteHero(id);
+        await this.getAllHeroes(1);
+      }
     },
 
-    toEditForm(hero:IHero){
+    toEditForm(hero: IHero) {
       this.setCurrentHeroForEdit(hero);
-      this.$router.push('/edit')
-    }
-  }
+      this.$router.push('/edit');
+    },
+  },
 });
 </script>
 
