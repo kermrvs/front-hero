@@ -11,7 +11,15 @@ export const HeroStore = defineStore('hero', {
     maxPages: 0 as Number,
     currentPage: 0 as Number,
   }),
+  getters: {
+    getCurrentPage(): number {
+      return +this.currentPage;
+    },
 
+    getMaxPages(): number {
+      return +this.maxPages;
+    },
+  },
   actions: {
     async getAllHeroes(page: number) {
       const { heroes, maxPages } = await this.heroObject.getHeroesWithPage(

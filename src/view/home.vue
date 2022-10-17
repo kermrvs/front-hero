@@ -4,18 +4,18 @@
     <div class="page-section">
       <div
         class="left"
-        @click="prevPage(currentPage - 1)"
-        v-show="currentPage !== 1 && maxPages !== 0"
+        @click="prevPage(+getCurrentPage - 1)"
+        v-show="+getCurrentPage !== 1 && +getMaxPages !== 0"
       >
-        <img src="src/assets/left.svg" />
+        <img src="/left.svg" />
       </div>
-      <div class="page" v-if="maxPages > 1">{{ currentPage }}</div>
+      <div class="page" v-if="+getMaxPages > 1">{{ +getCurrentPage }}</div>
       <div
         class="right"
-        @click="nextPage(currentPage + 1)"
-        v-show="maxPages > currentPage"
+        @click="nextPage(+getCurrentPage + 1)"
+        v-show="+getMaxPages > +getCurrentPage"
       >
-        <img src="src/assets/right.svg" />
+        <img src="/right.svg" />
       </div>
     </div>
   </div>
@@ -33,20 +33,20 @@ export default defineComponent({
     ListHero,
   },
   computed: {
-    ...mapState(HeroStore, ['maxPages', 'currentPage']),
+    ...mapState(HeroStore, ['getMaxPages', 'getCurrentPage']),
   },
   methods: {
     ...mapActions(HeroStore, ['getAllHeroes']),
 
-    nextPage(page: number) {
+    nextPage(page: number): void {
       this.getAllHeroes(page);
     },
 
-    prevPage(page: number) {
+    prevPage(page: number): void {
       this.getAllHeroes(page);
     },
   },
-  created() {
+  created(): void {
     this.getAllHeroes(1);
   },
 });
