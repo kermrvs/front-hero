@@ -23,7 +23,8 @@ $ yarn
 ```
 ## Running the app
 
-First step you need to open index.ts in directory ./src/services/api/index.ts and change baseURL
+First step you need to create file .env and write VITE_URL. This project was created for project https://github.com/kermrvs/front-hero.
+
 
 ```bash
 # development
